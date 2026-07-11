@@ -26,6 +26,8 @@ const supabase = createClient( supabaseUrl, supabaseKey);
 
 app.use(express.json());
 
+app.use(express.static('public'));
+
 app.use((err, req, res, next) => {
     console.error("Global Error Caught:", err);
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
